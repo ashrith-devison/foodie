@@ -9,3 +9,5 @@ class ApiResponse {
         return res.status(status).send(new ApiResponse(status, message, data));
     }
 }
+
+module.exports = ApiResponse;
