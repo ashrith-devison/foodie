@@ -11,4 +11,6 @@ app.get('/', (req, res) => {
 
 app.use('/api/food/', require('./route/food.router'));
 app.use('/api/user/', require('./route/user.route'));
+app.use('/api/restaurant/', require('./route/restaurant.route'));
+app.use('/api/foodorder/',require('./route/foodorder.route'));
 module.exports = app;
