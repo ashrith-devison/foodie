@@ -3,6 +3,7 @@ const FoodOrderModel = require('../models/foodorder.model');
 const handler = require('../utils/asynchandler');
 const ApiResponse = require('../utils/ApiResponse');
 const admin = require('../middlewares/admin.middleware');
+const FoodItems = require('../models/food.model');
 
 router.get(
   '/',
@@ -31,7 +32,8 @@ router.post(
 
     let totalPrice = 0;
     for (const item of items) {
-      const foodItem = await FoodOrderModel.findById(item.foodItem);
+      const foodItem = await FoodItems.findById(item.foodItem);
+      console.log(foodItem);
       if (foodItem) {
         totalPrice += foodItem.price * item.quantity;
       }
