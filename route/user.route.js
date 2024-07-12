@@ -5,11 +5,11 @@ const ApiResponse = require('../utils/ApiResponse');
 const ApiError = require('../utils/ApiError');
 const jwt = require('jsonwebtoken');
 
-router.post(
+router.put(
     '/login',
     handler(async (req, res) => {
       const { email,password } = req.body;
-      const user = await UserModel.findOne({ email });
+      const user = await UserModel.findOne({email:email });
         if(user){
             if(password !== user.password){
                 throw ApiError.badRequest('Invalid password');
