@@ -22,4 +22,18 @@ router.put('/login', handler(async (req, res) => {
     }
 }));
 
+router.post('/register', handler(async (req, res) => {
+    const {name, email, password, phonenumber, address} = req.body;
+    const Users = require('../models/user.model');
+    const user = new Users({
+        name,
+        email,
+        password,
+        phonenumber,
+        address
+    });
+    await user.save();
+    ApiResponse.ok(res, user);
+}));
+
 module.exports = router;
