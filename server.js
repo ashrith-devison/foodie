@@ -9,4 +9,5 @@ app.get('/', (req, res) => {
 );
 
 app.use('/api/auth/', require('./route/auth.route'));
+app.use('/api/food/', require('./route/food.items.route'));
 module.exports = app;
